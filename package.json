@@ -1,0 +1,187 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "breathe",
+  "title": "Breathe",
+  "description": "Gentle guided breathing with a faint screen-edge color ring",
+  "icon": "extension-icon.png",
+  "author": "aaron",
+  "categories": [
+    "Health"
+  ],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "start-breathing",
+      "title": "Start Breathing",
+      "description": "Choose a breathing pattern and displays, then start the overlay",
+      "mode": "view"
+    },
+    {
+      "name": "toggle-breathing",
+      "title": "Toggle Breathing",
+      "description": "Start or stop breathing with your last-used settings",
+      "mode": "no-view"
+    },
+    {
+      "name": "stop-breathing",
+      "title": "Stop Breathing",
+      "description": "Stop the breathing overlay",
+      "mode": "no-view"
+    },
+    {
+      "name": "install-login-start",
+      "title": "Enable Start at Login",
+      "description": "Start breathing automatically when you log in to macOS (no dev mode needed)",
+      "mode": "no-view"
+    },
+    {
+      "name": "uninstall-login-start",
+      "title": "Disable Start at Login",
+      "description": "Remove automatic breathing on login",
+      "mode": "no-view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "defaultPattern",
+      "type": "dropdown",
+      "required": false,
+      "title": "Default Pattern",
+      "description": "Pattern used when toggling without opening Start",
+      "default": "box",
+      "data": [
+        {
+          "title": "Box breath (4-4-4-4)",
+          "value": "box"
+        },
+        {
+          "title": "4-7-8 relax",
+          "value": "fourSevenEight"
+        },
+        {
+          "title": "Coherent 5-5",
+          "value": "coherent"
+        },
+        {
+          "title": "Equal 4-4",
+          "value": "equal"
+        },
+        {
+          "title": "Custom",
+          "value": "custom"
+        }
+      ]
+    },
+    {
+      "name": "customInhale",
+      "type": "textfield",
+      "required": false,
+      "title": "Custom inhale (seconds)",
+      "description": "Inhale duration for the Custom pattern (minimum 1 second)",
+      "default": "4",
+      "placeholder": "4"
+    },
+    {
+      "name": "customHoldIn",
+      "type": "textfield",
+      "required": false,
+      "title": "Custom hold after inhale (seconds)",
+      "description": "Hold after inhale for the Custom pattern; use 0 to skip this phase",
+      "default": "4",
+      "placeholder": "4"
+    },
+    {
+      "name": "customExhale",
+      "type": "textfield",
+      "required": false,
+      "title": "Custom exhale (seconds)",
+      "description": "Exhale duration for the Custom pattern (minimum 1 second)",
+      "default": "4",
+      "placeholder": "4"
+    },
+    {
+      "name": "customHoldOut",
+      "type": "textfield",
+      "required": false,
+      "title": "Custom hold after exhale (seconds)",
+      "description": "Hold after exhale for the Custom pattern; use 0 to skip this phase",
+      "default": "4",
+      "placeholder": "4"
+    },
+    {
+      "name": "ringOpacity",
+      "type": "textfield",
+      "required": false,
+      "title": "Ring opacity (0-100)",
+      "description": "How visible the edge ring is; lower values are more subtle",
+      "default": "20",
+      "placeholder": "20"
+    },
+    {
+      "name": "ringWidth",
+      "type": "textfield",
+      "required": false,
+      "title": "Ring width (pixels)",
+      "description": "Thickness of the colored edge band in pixels",
+      "default": "10",
+      "placeholder": "10"
+    },
+    {
+      "name": "defaultDisplays",
+      "type": "dropdown",
+      "required": false,
+      "title": "Default displays",
+      "description": "Which displays to pre-select when starting",
+      "default": "lastUsed",
+      "data": [
+        {
+          "title": "Last used",
+          "value": "lastUsed"
+        },
+        {
+          "title": "All displays",
+          "value": "all"
+        },
+        {
+          "title": "Primary only",
+          "value": "primaryOnly"
+        }
+      ]
+    },
+    {
+      "name": "fadeSmoothness",
+      "type": "textfield",
+      "required": false,
+      "title": "Color fade smoothness (0.01-1)",
+      "description": "Higher = slower, gentler color transitions",
+      "default": "0.08",
+      "placeholder": "0.08"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.103.0",
+    "@raycast/utils": "^1.19.0"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^2.0.4",
+    "@types/node": "22.13.10",
+    "@types/react": "19.0.10",
+    "eslint": "^9.22.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "build-swift": "bash scripts/build-swift.sh",
+    "login-agent:install": "bash scripts/install-login-agent.sh",
+    "login-agent:uninstall": "bash scripts/uninstall-login-agent.sh",
+    "prepublishOnly": "echo \"Local extension — not publishing\" && exit 1"
+  }
+}

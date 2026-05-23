@@ -47,8 +47,11 @@ Configure in Raycast → Extensions → Breathe → Settings:
   ```bash
   ./assets/breathe-helper --list-displays
   ```
-- **Ring opacity** and **fade depth**
-- **Color fade smoothness**
+- **Animate ring with breath** — Ring thickens on inhale and thins on exhale (cosine ease); holds stay thick or thin
+- **Animate colors with breath** — Blue inhale, purple exhale, light blue hold
+- **Static ring color** — Blue, light blue, or purple when color animation is off
+- **Ring opacity** and **fade depth** (max thickness when ring animation is on; min is ~40% of max)
+- **Color fade smoothness** (when color animation is on)
 
 ## Patterns
 

@@ -1,18 +1,26 @@
 import { getPreferenceValues } from "@raycast/api";
 import type { BreathingPattern, PatternId } from "./types";
 
-function parseSeconds(value: string, fallback: number): number {
+/** Inhale/exhale must be at least 1 second. */
+function parseRequiredSeconds(value: string, fallback: number): number {
   const n = parseFloat(value);
   if (!Number.isFinite(n) || n < 1) return fallback;
   return n;
 }
 
+/** Hold phases allow 0 to skip that hold entirely. */
+function parseHoldSeconds(value: string): number {
+  const n = parseFloat(value);
+  if (!Number.isFinite(n) || n < 0) return 0;
+  return n;
+}
+
 export function getCustomPattern(): BreathingPattern {
   const prefs = getPreferenceValues<Preferences>();
-  const inhale = parseSeconds(prefs.customInhale, 4);
-  const holdIn = parseSeconds(prefs.customHoldIn, 4);
-  const exhale = parseSeconds(prefs.customExhale, 4);
-  const holdOut = parseSeconds(prefs.customHoldOut, 4);
+  const inhale = parseRequiredSeconds(prefs.customInhale, 4);
+  const holdIn = parseHoldSeconds(prefs.customHoldIn);
+  const exhale = parseRequiredSeconds(prefs.customExhale, 4);
+  const holdOut = parseHoldSeconds(prefs.customHoldOut);
 
   const phases: BreathingPattern["phases"] = [{ type: "inhale", duration: inhale }];
   if (holdIn > 0) phases.push({ type: "hold", duration: holdIn });

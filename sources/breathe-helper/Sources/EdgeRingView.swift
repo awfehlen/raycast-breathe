@@ -35,6 +35,8 @@ final class EdgeRingView: NSView {
                 "bounds": NSNull(),
                 "position": NSNull(),
                 "frame": NSNull(),
+                "bounds.size": NSNull(),
+                "bounds.origin": NSNull(),
             ]
             gradient.compositingFilter = "plusL"
             layer?.addSublayer(gradient)

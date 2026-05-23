@@ -27,7 +27,13 @@ type ExtensionPreferences = {
   /** Ring fade depth (pixels) - How far the soft gradient extends inward from each edge */
   "ringWidth": string,
   /** Color fade smoothness (0.01-1) - Higher = slower, gentler color transitions */
-  "fadeSmoothness": string
+  "fadeSmoothness": string,
+  /** Animate ring with breath - Ring thickens on inhale and thins on exhale; holds stay at min or max */
+  "animateRingThickness": boolean,
+  /** Animate colors with breath - Shift ring color by phase (blue in, purple out, light blue hold) */
+  "animateColors": boolean,
+  /** Static ring color - Used when Animate colors is off */
+  "staticRingColor": "blue" | "lightBlue" | "purple"
 }
 
 /** Preferences accessible in all the extension's commands */

@@ -7,6 +7,8 @@ export type BreathingPhase = {
 
 export type PatternId = "box" | "fourSevenEight" | "coherent" | "equal" | "custom";
 
+export type StaticRingColor = "blue" | "lightBlue" | "purple";
+
 export type BreathingPattern = {
   id: PatternId;
   name: string;
@@ -27,6 +29,9 @@ export type HelperConfig = {
   opacity: number;
   ringWidth: number;
   fadeSmoothness: number;
+  animateRingThickness: boolean;
+  animateColors: boolean;
+  staticRingColor: StaticRingColor;
 };
 
 export type SessionState = {

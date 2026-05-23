@@ -39,10 +39,7 @@ final class OverlayController {
 
     init(config: SessionConfig) {
         self.config = config
-        self.engine = BreathingEngine(
-            phases: config.pattern.phases,
-            fadeSmoothness: config.fadeSmoothness
-        )
+        self.engine = BreathingEngine(config: config)
     }
 
     func start() {
@@ -53,13 +50,13 @@ final class OverlayController {
             return window
         }
 
-        engine.onColorUpdate = { [weak self] color, _ in
+        engine.onFrameUpdate = { [weak self] color, ringWidth in
             guard let self else { return }
             for window in self.windows {
                 window.ringView?.update(
                     color: color,
                     opacity: self.config.opacity,
-                    ringWidth: self.config.ringWidth
+                    ringWidth: ringWidth
                 )
             }
         }

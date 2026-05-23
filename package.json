@@ -126,6 +126,37 @@
       "description": "Higher = slower, gentler color transitions",
       "default": "0.08",
       "placeholder": "0.08"
+    },
+    {
+      "name": "animateRingThickness",
+      "type": "checkbox",
+      "required": false,
+      "label": "Animate ring with breath",
+      "title": "Animate ring with breath",
+      "description": "Ring thickens on inhale and thins on exhale; holds stay at min or max",
+      "default": true
+    },
+    {
+      "name": "animateColors",
+      "type": "checkbox",
+      "required": false,
+      "label": "Animate colors with breath",
+      "title": "Animate colors with breath",
+      "description": "Shift ring color by phase (blue in, purple out, light blue hold)",
+      "default": true
+    },
+    {
+      "name": "staticRingColor",
+      "type": "dropdown",
+      "required": false,
+      "title": "Static ring color",
+      "description": "Used when Animate colors is off",
+      "default": "blue",
+      "data": [
+        { "title": "Blue", "value": "blue" },
+        { "title": "Light blue", "value": "lightBlue" },
+        { "title": "Purple", "value": "purple" }
+      ]
     }
   ],
   "dependencies": {

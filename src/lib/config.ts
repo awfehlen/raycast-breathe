@@ -1,10 +1,21 @@
 import { getPreferenceValues } from "@raycast/api";
-import type { BreathingPattern, HelperConfig } from "./types";
+import type { BreathingPattern, HelperConfig, StaticRingColor } from "./types";
 import { getPatternById } from "./patterns";
 import type { PatternId } from "./types";
 
 function clamp(value: number, min: number, max: number): number {
   return Math.min(max, Math.max(min, value));
+}
+
+function prefBool(value: boolean | string | undefined, defaultValue: boolean): boolean {
+  if (value === undefined) return defaultValue;
+  if (typeof value === "boolean") return value;
+  return value === "true" || value === "1";
+}
+
+function prefStaticColor(value: string | undefined): StaticRingColor {
+  if (value === "lightBlue" || value === "purple") return value;
+  return "blue";
 }
 
 export function buildHelperConfig(pattern: BreathingPattern, displayIds: string[]): HelperConfig {
@@ -19,6 +30,9 @@ export function buildHelperConfig(pattern: BreathingPattern, displayIds: string[
     opacity,
     ringWidth,
     fadeSmoothness,
+    animateRingThickness: prefBool(prefs.animateRingThickness, true),
+    animateColors: prefBool(prefs.animateColors, true),
+    staticRingColor: prefStaticColor(prefs.staticRingColor),
   };
 }
 

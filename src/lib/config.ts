@@ -20,8 +20,8 @@ function prefStaticColor(value: string | undefined): StaticRingColor {
 
 export function buildHelperConfig(pattern: BreathingPattern, displayIds: string[]): HelperConfig {
   const prefs = getPreferenceValues<Preferences>();
-  const opacity = clamp(parseFloat(prefs.ringOpacity) / 100 || 0.32, 0.08, 0.85);
-  const ringWidth = clamp(parseFloat(prefs.ringWidth) || 56, 16, 120);
+  const opacity = clamp(parseFloat(prefs.ringOpacity) / 100 || 0.23, 0.08, 0.85);
+  const ringWidth = clamp(parseFloat(prefs.ringWidth) || 60, 16, 120);
   const fadeSmoothness = clamp(parseFloat(prefs.fadeSmoothness) || 0.08, 0.01, 1);
 
   return {

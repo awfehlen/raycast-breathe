@@ -106,8 +106,8 @@
       "required": false,
       "title": "Ring opacity (0-100)",
       "description": "Peak brightness at the screen edge; lower values stay more subtle",
-      "default": "32",
-      "placeholder": "32"
+      "default": "23",
+      "placeholder": "23"
     },
     {
       "name": "ringWidth",
@@ -115,8 +115,8 @@
       "required": false,
       "title": "Ring fade depth (pixels)",
       "description": "How far the soft gradient extends inward from each edge",
-      "default": "56",
-      "placeholder": "56"
+      "default": "60",
+      "placeholder": "60"
     },
     {
       "name": "fadeSmoothness",

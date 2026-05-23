@@ -3,8 +3,8 @@ import QuartzCore
 
 final class EdgeRingView: NSView {
     var ringColor: NSColor = NSColor(red: 0.35, green: 0.55, blue: 1.0, alpha: 1)
-    var ringWidth: CGFloat = 56
-    var opacity: CGFloat = 0.32
+    var ringWidth: CGFloat = 60
+    var opacity: CGFloat = 0.23
 
     private let topGradient = CAGradientLayer()
     private let bottomGradient = CAGradientLayer()

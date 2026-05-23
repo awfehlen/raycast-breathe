@@ -3,7 +3,7 @@
   "name": "breathe",
   "title": "Breathe",
   "description": "Gentle guided breathing with a faint screen-edge color ring",
-  "icon": "extension-icon.png",
+  "icon": "icon.png",
   "author": "aaron",
   "categories": ["Health"],
   "license": "MIT",

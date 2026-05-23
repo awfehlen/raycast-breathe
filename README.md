@@ -1,6 +1,6 @@
 # Breathe — Raycast Extension
 
-Gentle guided breathing while you work. A faint color ring around the screen edge fades between **blue** (inhale), **purple** (hold), and **green** (exhale).
+Gentle guided breathing while you work. A faint color ring around the screen edge fades between **blue** (inhale), **purple** (exhale), and **light blue** (hold).
 
 ## Setup
 
@@ -18,6 +18,16 @@ Gentle guided breathing while you work. A faint color ring around the screen edg
 3. Open **Extension Settings** (gear on the Breathe extension) and set your **breathing pattern**, **displays**, ring opacity, and fade depth.
 
 4. For development only: `npm run dev` (not required for daily use after import).
+
+## Extension icon
+
+Raycast loads the icon from [`assets/icon.png`](assets/icon.png) (512×512 PNG). To use your own:
+
+1. Create or export a **512×512** PNG.
+2. Replace `assets/icon.png` (and optionally `extension-icon.png` at the project root).
+3. Reload the extension (`npm run dev` or re-import in Raycast).
+
+You can also drop an image into the Cursor chat and ask to use it as the extension icon.
 
 ## Commands
 

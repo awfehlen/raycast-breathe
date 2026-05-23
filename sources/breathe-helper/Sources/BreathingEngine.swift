@@ -29,9 +29,9 @@ struct RGBColor {
     var g: Double
     var b: Double
 
-    static let inhale = RGBColor(r: 0.35, g: 0.55, b: 1.0)
-    static let exhale = RGBColor(r: 0.35, g: 0.88, b: 0.55)
-    static let hold = RGBColor(r: 0.72, g: 0.48, b: 0.95)
+    static let inhale = RGBColor(r: 0.42, g: 0.62, b: 1.0)
+    static let exhale = RGBColor(r: 0.38, g: 0.92, b: 0.58)
+    static let hold = RGBColor(r: 0.78, g: 0.52, b: 1.0)
 
     static func target(for type: PhaseType) -> RGBColor {
         switch type {

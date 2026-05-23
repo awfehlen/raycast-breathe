@@ -4,7 +4,6 @@ import * as fs from "fs";
 import * as os from "os";
 import * as path from "path";
 import type { DisplayInfo, HelperConfig } from "./types";
-import { writeLoginConfig } from "./startup-config";
 
 export const APP_SUPPORT_DIR = path.join(os.homedir(), "Library", "Application Support", "com.raycast.breathe");
 const PID_FILE = path.join(APP_SUPPORT_DIR, "breathe-helper.pid");
@@ -57,8 +56,6 @@ export async function startHelper(config: HelperConfig): Promise<void> {
     });
     throw new Error("breathe-helper not found");
   }
-
-  writeLoginConfig(config);
 
   const configPath = path.join(os.tmpdir(), `breathe-config-${Date.now()}.json`);
   fs.writeFileSync(configPath, JSON.stringify(config));

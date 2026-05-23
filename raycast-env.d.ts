@@ -8,8 +8,8 @@
 /* eslint-disable @typescript-eslint/ban-types */
 
 type ExtensionPreferences = {
-  /** Default Pattern - Pattern used when toggling without opening Start */
-  "defaultPattern": "box" | "fourSevenEight" | "coherent" | "equal" | "custom",
+  /** Breathing pattern - Guided breathing rhythm used when you start or toggle */
+  "breathingPattern": "box" | "fourSevenEight" | "coherent" | "equal" | "custom",
   /** Custom inhale (seconds) - Inhale duration for the Custom pattern (minimum 1 second) */
   "customInhale": string,
   /** Custom hold after inhale (seconds) - Hold after inhale for the Custom pattern; use 0 to skip this phase */
@@ -18,12 +18,14 @@ type ExtensionPreferences = {
   "customExhale": string,
   /** Custom hold after exhale (seconds) - Hold after exhale for the Custom pattern; use 0 to skip this phase */
   "customHoldOut": string,
-  /** Ring opacity (0-100) - How visible the edge ring is; lower values are more subtle */
+  /** Displays - Which monitors show the ring. Use Display IDs for a custom set. */
+  "displays": "all" | "primaryOnly",
+  /** Display IDs (optional) - Override Displays: comma-separated IDs (e.g. 1,2). Run breathe-helper --list-displays in assets for IDs. */
+  "displayIds": string,
+  /** Ring opacity (0-100) - Peak brightness at the screen edge; lower values stay more subtle */
   "ringOpacity": string,
-  /** Ring width (pixels) - Thickness of the colored edge band in pixels */
+  /** Ring fade depth (pixels) - How far the soft gradient extends inward from each edge */
   "ringWidth": string,
-  /** Default displays - Which displays to pre-select when starting */
-  "defaultDisplays": "lastUsed" | "all" | "primaryOnly",
   /** Color fade smoothness (0.01-1) - Higher = slower, gentler color transitions */
   "fadeSmoothness": string
 }
@@ -38,10 +40,6 @@ declare namespace Preferences {
   export type ToggleBreathing = ExtensionPreferences & {}
   /** Preferences accessible in the `stop-breathing` command */
   export type StopBreathing = ExtensionPreferences & {}
-  /** Preferences accessible in the `install-login-start` command */
-  export type InstallLoginStart = ExtensionPreferences & {}
-  /** Preferences accessible in the `uninstall-login-start` command */
-  export type UninstallLoginStart = ExtensionPreferences & {}
 }
 
 declare namespace Arguments {
@@ -51,9 +49,5 @@ declare namespace Arguments {
   export type ToggleBreathing = {}
   /** Arguments passed to the `stop-breathing` command */
   export type StopBreathing = {}
-  /** Arguments passed to the `install-login-start` command */
-  export type InstallLoginStart = {}
-  /** Arguments passed to the `uninstall-login-start` command */
-  export type UninstallLoginStart = {}
 }
 

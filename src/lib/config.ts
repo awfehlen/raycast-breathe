@@ -9,8 +9,8 @@ function clamp(value: number, min: number, max: number): number {
 
 export function buildHelperConfig(pattern: BreathingPattern, displayIds: string[]): HelperConfig {
   const prefs = getPreferenceValues<Preferences>();
-  const opacity = clamp(parseFloat(prefs.ringOpacity) / 100 || 0.2, 0.05, 1);
-  const ringWidth = clamp(parseFloat(prefs.ringWidth) || 10, 4, 40);
+  const opacity = clamp(parseFloat(prefs.ringOpacity) / 100 || 0.32, 0.08, 0.85);
+  const ringWidth = clamp(parseFloat(prefs.ringWidth) || 56, 16, 120);
   const fadeSmoothness = clamp(parseFloat(prefs.fadeSmoothness) || 0.08, 0.01, 1);
 
   return {
